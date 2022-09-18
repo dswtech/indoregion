@@ -19,8 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id')->primary();
             $table->foreignId('province_id')
                 ->constrained('id_provinces')
-                ->cascadeOnUpdate()
-                ->restrictOnDelete();
+                ->cascadeOnUpdate();
             $table->string('name', 50);
         });
     }
