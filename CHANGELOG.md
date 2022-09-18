@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## Several fix and improvement - 2022-09-18
+
+- Fix slow seeder and compatibility with mssql
+
+### What's Changed
+
+- Update to mass insert and chunking village by @leak107 in https://github.com/dicibi/indoregion/pull/1
+
+### New Contributors
+
+- @leak107 made their first contribution in https://github.com/dicibi/indoregion/pull/1
+
+**Full Changelog**: https://github.com/dicibi/indoregion/compare/v1.1.0...v1.1.1
+
 ## v1.1.0 - 2022-09-04
 
 **Full Changelog**: https://github.com/dicibi/indoregion/compare/v1.0.0...v1.1.0
