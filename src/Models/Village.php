@@ -9,6 +9,7 @@
 
 namespace Dicibi\IndoRegion\Models;
 
+use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
 
@@ -22,13 +23,16 @@ use Illuminate\Database\Eloquent\Relations;
  */
 class Village extends Model
 {
-    protected $table = 'id_villages';
-
     public $timestamps = false;
 
     protected $hidden = [
         'district_id',
     ];
+
+    public function getTable(): string
+    {
+        return IndoRegion::getVillageTable();
+    }
 
     public function district(): Relations\BelongsTo
     {

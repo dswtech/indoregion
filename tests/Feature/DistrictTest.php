@@ -32,7 +32,7 @@ it('can retrieve villages with same value with regency', function () {
     /** @var \Dicibi\IndoRegion\Models\Village $village */
     $village = $district->villages()->first();
 
-    assertTrue($district->regency->villages()->where('id_villages.id', $village->id)->exists());
+    assertTrue($district->regency->villages()->where($village->getTable().'.id', $village->id)->exists());
 });
 
 it('can retrieve district from actions', function () {

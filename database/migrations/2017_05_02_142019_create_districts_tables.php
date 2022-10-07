@@ -7,6 +7,7 @@
  *
  */
 
+use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +16,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('id_districts', static function (Blueprint $table) {
+        Schema::create(IndoRegion::getDistrictTable(), static function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
             $table->foreignId('regency_id')
                 ->constrained('id_regencies')
@@ -26,6 +27,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::drop('districts');
+        Schema::drop(IndoRegion::getDistrictTable());
     }
 };

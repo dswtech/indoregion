@@ -9,6 +9,7 @@
 
 namespace Dicibi\IndoRegion\Models;
 
+use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
 
@@ -29,6 +30,11 @@ class District extends Model
     protected $hidden = [
         'regency_id',
     ];
+
+    public function getTable(): string
+    {
+        return IndoRegion::getDistrictTable();
+    }
 
     public function regency(): Relations\BelongsTo
     {

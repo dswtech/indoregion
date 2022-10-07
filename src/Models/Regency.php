@@ -9,6 +9,7 @@
 
 namespace Dicibi\IndoRegion\Models;
 
+use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
 
@@ -24,7 +25,6 @@ use Illuminate\Database\Eloquent\Relations;
  */
 class Regency extends Model
 {
-    protected $table = 'id_regencies';
 
     public $timestamps = false;
 
@@ -32,14 +32,19 @@ class Regency extends Model
         'province_id',
     ];
 
+    public function getTable(): string
+    {
+        return IndoRegion::getRegencyTable();
+    }
+
     public function province(): Relations\BelongsTo
     {
-        return $this->belongsTo(Province::class, 'province_id');
+        return $this->belongsTo(Province::class);
     }
 
     public function districts(): Relations\HasMany
     {
-        return $this->hasMany(District::class, 'regency_id');
+        return $this->hasMany(District::class);
     }
 
     public function villages(): Relations\HasManyThrough
