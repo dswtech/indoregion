@@ -15,13 +15,6 @@ use Illuminate\Database\Seeder;
 
 class IndoRegionProvinceSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     *
-     * @throws \League\Csv\Exception
-     */
     public function run(): void
     {
         // Get Data
@@ -29,7 +22,7 @@ class IndoRegionProvinceSeeder extends Seeder
 
         // Insert Data to Database
         foreach ($provinces as $province) {
-            Province::query()->create($province);
+            Province::query()->insert($province);
         }
     }
 }

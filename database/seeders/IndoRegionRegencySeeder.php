@@ -15,9 +15,6 @@ use Illuminate\Database\Seeder;
 
 class IndoRegionRegencySeeder extends Seeder
 {
-    /**
-     * @throws \League\Csv\Exception
-     */
     public function run(): void
     {
         // Get Data
@@ -25,7 +22,7 @@ class IndoRegionRegencySeeder extends Seeder
 
         // Insert Data to Database
         foreach ($regencies as $regency) {
-            Regency::query()->create($regency);
+            Regency::query()->insert($regency);
         }
     }
 }

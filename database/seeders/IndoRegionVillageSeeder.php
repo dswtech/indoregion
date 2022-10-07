@@ -12,19 +12,17 @@ namespace Dicibi\IndoRegion\Database\Seeders;
 use Dicibi\IndoRegion\Models\Village;
 use Dicibi\IndoRegion\RawDataGetter;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Collection;
 
 class IndoRegionVillageSeeder extends Seeder
 {
-    /**
-     * @throws \League\Csv\Exception
-     */
     public function run(): void
     {
         // Get Data
         $villages = RawDataGetter::getVillages();
 
         // Insert Data with Chunk
-        collect($villages)->chunk(100)->each(function ($chunk) {
+        collect($villages)->chunk(100)->each(function (Collection $chunk) {
             Village::query()->insert($chunk->toArray());
         });
     }
