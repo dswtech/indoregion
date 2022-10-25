@@ -9,6 +9,7 @@
 
 namespace Dicibi\IndoRegion\Models;
 
+use Dicibi\IndoRegion\Enums\Feature;
 use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
@@ -16,33 +17,37 @@ use Illuminate\Database\Eloquent\Relations;
 /**
  * District Model.
  *
+ * @property  int $id
  * @property  string $name
  * @property  Regency $regency
  * @property  \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\Village> $villages
- * @property  int|string $regency_id
+ * @property  int|string $idn_regency_id
  */
 class District extends Model
 {
-    protected $table = 'id_districts';
-
     public $timestamps = false;
 
-    protected $hidden = [
-        'regency_id',
-    ];
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->setHidden([
+            IndoRegion::getForeignKeyId(Feature::Regency),
+        ]);
+    }
 
     public function getTable(): string
     {
-        return IndoRegion::getDistrictTable();
+        return IndoRegion::getTable(Feature::District);
     }
 
     public function regency(): Relations\BelongsTo
     {
-        return $this->belongsTo(Regency::class);
+        return $this->belongsTo(config('indoregion.models.regency'), IndoRegion::getForeignKeyId(Feature::Regency));
     }
 
     public function villages(): Relations\HasMany
     {
-        return $this->hasMany(Village::class);
+        return $this->hasMany(config('indoregion.models.village'), IndoRegion::getForeignKeyId(Feature::District));
     }
 }

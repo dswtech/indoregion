@@ -9,6 +9,7 @@
 
 namespace Dicibi\IndoRegion\Models;
 
+use Dicibi\IndoRegion\Enums\Feature;
 use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
@@ -27,16 +28,21 @@ class Province extends Model
 
     public function getTable(): string
     {
-        return IndoRegion::getProvinceTable();
+        return IndoRegion::getTable(Feature::Province);
     }
 
     public function regencies(): Relations\HasMany
     {
-        return $this->hasMany(Regency::class);
+        return $this->hasMany(config('indoregion.models.regency'), IndoRegion::getForeignKeyId(Feature::Province));
     }
 
     public function districts(): Relations\HasManyThrough
     {
-        return $this->hasManyThrough(District::class, Regency::class);
+        return $this->hasManyThrough(
+            config('indoregion.models.district'),
+            config('indoregion.models.regency'),
+            IndoRegion::getForeignKeyId(Feature::Province),
+            IndoRegion::getForeignKeyId(Feature::Regency),
+        );
     }
 }

@@ -28,7 +28,7 @@ it('can retrieve districts', function () {
     /** @var \Dicibi\IndoRegion\Models\District $district */
     $district = $regency->districts()->first();
 
-    assertSame((int) $district->regency_id, $regency->id);
+    assertSame((int) $district->idn_regency_id, $regency->id);
 });
 
 it('can retrieve villages', function () {
@@ -40,7 +40,7 @@ it('can retrieve villages', function () {
     /** @var \Dicibi\IndoRegion\Models\Village $village */
     $village = $regency->villages()->first();
 
-    assertTrue($regency->districts()->where('id', $village->district_id)->exists());
+    assertTrue($regency->districts()->where('id', $village->idn_district_id)->exists());
 });
 
 it('can retrieve regency from actions', function () {

@@ -27,7 +27,7 @@ it('can retrieve regencies from province', function () {
     /** @var \Dicibi\IndoRegion\Models\Regency $regency */
     $regency = $province->regencies()->first();
 
-    assertSame($province->id, (int) $regency->province_id);
+    assertSame($province->id, (int) $regency->idn_province_id);
 });
 
 it('can retrieve district from province', function () {
@@ -39,7 +39,7 @@ it('can retrieve district from province', function () {
     /** @var \Dicibi\IndoRegion\Models\District $district */
     $district = $province->districts()->first();
 
-    assertTrue($province->regencies()->where('id', $district->regency_id)->exists());
+    assertTrue($province->regencies()->where('id', $district->idn_regency_id)->exists());
 });
 
 it('can retrieve provinces from action', function () {

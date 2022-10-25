@@ -7,6 +7,7 @@
  *
  */
 
+use Dicibi\IndoRegion\Enums\Feature;
 use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,10 +17,10 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create(IndoRegion::getRegencyTable(), static function (Blueprint $table) {
+        Schema::create(IndoRegion::getTable(Feature::Regency), static function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
-            $table->foreignId('province_id')
-                ->constrained('id_provinces')
+            $table->foreignId(IndoRegion::getForeignKeyId(Feature::Province))
+                ->constrained(IndoRegion::getTable(Feature::Province))
                 ->cascadeOnUpdate();
             $table->string('name', 50);
         });
@@ -27,6 +28,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::drop(IndoRegion::getRegencyTable());
+        Schema::drop(IndoRegion::getTable(Feature::Regency));
     }
 };

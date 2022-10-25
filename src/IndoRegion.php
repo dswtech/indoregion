@@ -2,9 +2,10 @@
 
 namespace Dicibi\IndoRegion;
 
+use Dicibi\IndoRegion\Enums\Feature;
 use Illuminate\Database\Schema\Blueprint;
 
-class IndoRegion
+final class IndoRegion
 {
     // table prefixed with idn (Indonesia) in ISO 3166-1 alpha-3
 
@@ -13,91 +14,112 @@ class IndoRegion
     protected static string $districtTable = 'idn_districts';
     protected static string $villageTable = 'idn_villages';
 
+    protected static string $foreignProvinceId = 'idn_province_id';
+    protected static string $foreignRegencyId = 'idn_regency_id';
+    protected static string $foreignDistrictId = 'idn_district_id';
+    protected static string $foreignVillageId = 'idn_village_id';
+
     /**
      * @param \Illuminate\Database\Schema\Blueprint $table
      * @param array<\Dicibi\IndoRegion\Enums\Feature> $features
      * @return void
      */
-    public static function tables(Blueprint $table, array $features = []): void
+    public static function tables(
+        Blueprint $table,
+        array     $features = [
+            Enums\Feature::Province,
+            Enums\Feature::Regency,
+            Enums\Feature::District,
+            Enums\Feature::Village,
+        ]
+    ): void
     {
-        if (in_array(Enums\Feature::Province, $features)) {
-            $table->foreignId('province_id')->constrained()->references('id')->on('provinces');
+        if (in_array(Enums\Feature::Province, $features, true)) {
+            $table->foreignId(self::getForeignKeyId(Feature::Province))
+                ->nullable()
+                ->constrained()
+                ->references('id')
+                ->on(self::getTable(Feature::Province));
         }
 
-        if (in_array(Enums\Feature::Regency, $features)) {
-            $table->foreignId('regency_id')->constrained()->references('id')->on('regencies');
+        if (in_array(Enums\Feature::Regency, $features, true)) {
+            $table->foreignId(self::getForeignKeyId(Feature::Regency))
+                ->nullable()
+                ->constrained()
+                ->references('id')
+                ->on(self::getTable(Feature::Regency));
         }
 
-        if (in_array(Enums\Feature::District, $features)) {
-            $table->foreignId('district_id')->constrained()->references('id')->on('districts');
+        if (in_array(Enums\Feature::District, $features, true)) {
+            $table->foreignId(self::getForeignKeyId(Feature::District))
+                ->nullable()
+                ->constrained()
+                ->references('id')
+                ->on(self::getTable(Feature::District));
         }
 
-        if (in_array(Enums\Feature::Village, $features)) {
-            $table->foreignId('village_id')->constrained()->references('id')->on('villages');
+        if (in_array(Enums\Feature::Village, $features, true)) {
+            $table->foreignId(self::getForeignKeyId(Feature::Village))
+                ->nullable()
+                ->constrained()
+                ->references('id')
+                ->on(self::getTable(Feature::Village));
         }
     }
 
-    /**
-     * @return string
-     */
-    public static function getProvinceTable(): string
+    public static function getTable(Feature $feature): string
     {
-        return self::$provinceTable;
+        return match ($feature) {
+            Enums\Feature::Province => self::$provinceTable,
+            Enums\Feature::Regency => self::$regencyTable,
+            Enums\Feature::District => self::$districtTable,
+            Enums\Feature::Village => self::$villageTable,
+        };
     }
 
-    /**
-     * @param string $provinceTable
-     */
-    public static function setProvinceTable(string $provinceTable): void
+    public static function getForeignKeyId(Feature $feature): string
     {
-        self::$provinceTable = $provinceTable;
+        return match ($feature) {
+            Enums\Feature::Province => self::$foreignProvinceId,
+            Enums\Feature::Regency => self::$foreignRegencyId,
+            Enums\Feature::District => self::$foreignDistrictId,
+            Enums\Feature::Village => self::$foreignVillageId,
+        };
     }
 
-    /**
-     * @return string
-     */
-    public static function getRegencyTable(): string
+    public static function setTable(Feature $feature, string $name): void
     {
-        return self::$regencyTable;
+        switch ($feature) {
+            case Enums\Feature::Province:
+                self::$provinceTable = $name;
+                break;
+            case Enums\Feature::Regency:
+                self::$regencyTable = $name;
+                break;
+            case Enums\Feature::District:
+                self::$districtTable = $name;
+                break;
+            case Enums\Feature::Village:
+                self::$villageTable = $name;
+                break;
+        }
     }
 
-    /**
-     * @param string $regencyTable
-     */
-    public static function setRegencyTable(string $regencyTable): void
+    public static function setForeignKeyId(Feature $feature, string $name): void
     {
-        self::$regencyTable = $regencyTable;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getDistrictTable(): string
-    {
-        return self::$districtTable;
-    }
-
-    /**
-     * @param string $districtTable
-     */
-    public static function setDistrictTable(string $districtTable): void
-    {
-        self::$districtTable = $districtTable;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getVillageTable(): string
-    {
-        return self::$villageTable;
-    }
-
-    /**
-     * @param string $villageTable
-     */
-    public static function setVillageTable(string $villageTable): void
-    {
-        self::$villageTable = $villageTable;
+        switch ($feature) {
+            case Enums\Feature::Province:
+                self::$foreignProvinceId = $name;
+                break;
+            case Enums\Feature::Regency:
+                self::$foreignRegencyId = $name;
+                break;
+            case Enums\Feature::District:
+                self::$foreignDistrictId = $name;
+                break;
+            case Enums\Feature::Village:
+                self::$foreignVillageId = $name;
+                break;
+        }
     }
 }

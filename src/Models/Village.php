@@ -9,6 +9,7 @@
 
 namespace Dicibi\IndoRegion\Models;
 
+use Dicibi\IndoRegion\Enums\Feature;
 use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
@@ -18,24 +19,29 @@ use Illuminate\Database\Eloquent\Relations;
  *
  * @property  string $name
  * @property  \Dicibi\IndoRegion\Models\District $district
- * @property  int|string $district_id
+ * @property  int|string $idn_district_id
  * @property  int $id
  */
 class Village extends Model
 {
     public $timestamps = false;
 
-    protected $hidden = [
-        'district_id',
-    ];
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        $this->setHidden([
+            IndoRegion::getForeignKeyId(Feature::District),
+        ]);
+    }
 
     public function getTable(): string
     {
-        return IndoRegion::getVillageTable();
+        return IndoRegion::getTable(Feature::Village);
     }
 
     public function district(): Relations\BelongsTo
     {
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(config('indoregion.models.district'), IndoRegion::getForeignKeyId(Feature::District));
     }
 }

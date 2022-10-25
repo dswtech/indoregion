@@ -7,6 +7,7 @@
  *
  */
 
+use Dicibi\IndoRegion\Enums\Feature;
 use Dicibi\IndoRegion\IndoRegion;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -16,7 +17,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create(IndoRegion::getProvinceTable(), static function (Blueprint $table) {
+        Schema::create(IndoRegion::getTable(Feature::Province), static function (Blueprint $table) {
             $table->unsignedBigInteger('id')->primary();
             $table->string('name');
         });
@@ -24,6 +25,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::drop(IndoRegion::getProvinceTable());
+        Schema::drop(IndoRegion::getTable(Feature::Province));
     }
 };
