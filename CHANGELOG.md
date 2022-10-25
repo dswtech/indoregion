@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Refactoring   - 2022-10-25
+
+- change table and column naming
+- dynamically using static class change for table and naming
+
 ## Several fix and improvement - 2022-09-18
 
 - Fix slow seeder and compatibility with mssql
