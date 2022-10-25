@@ -26,7 +26,6 @@ use Illuminate\Database\Eloquent\Relations;
  */
 class Regency extends Model
 {
-
     public $timestamps = false;
 
     public function __construct(array $attributes = [])
