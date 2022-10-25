@@ -24,7 +24,7 @@ class TestCase extends TestbenchTestCase
 
     protected function defineDatabaseMigrations(): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/Stuff/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Stuff/migrations');
         $this->loadLaravelMigrations();
     }
 }

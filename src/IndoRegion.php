@@ -10,30 +10,35 @@ final class IndoRegion
     // table prefixed with idn (Indonesia) in ISO 3166-1 alpha-3
 
     protected static string $provinceTable = 'idn_provinces';
+
     protected static string $regencyTable = 'idn_regencies';
+
     protected static string $districtTable = 'idn_districts';
+
     protected static string $villageTable = 'idn_villages';
 
     protected static string $foreignProvinceId = 'idn_province_id';
+
     protected static string $foreignRegencyId = 'idn_regency_id';
+
     protected static string $foreignDistrictId = 'idn_district_id';
+
     protected static string $foreignVillageId = 'idn_village_id';
 
     /**
-     * @param \Illuminate\Database\Schema\Blueprint $table
-     * @param array<\Dicibi\IndoRegion\Enums\Feature> $features
+     * @param  \Illuminate\Database\Schema\Blueprint  $table
+     * @param  array<\Dicibi\IndoRegion\Enums\Feature>  $features
      * @return void
      */
     public static function tables(
         Blueprint $table,
-        array     $features = [
+        array $features = [
             Enums\Feature::Province,
             Enums\Feature::Regency,
             Enums\Feature::District,
             Enums\Feature::Village,
         ]
-    ): void
-    {
+    ): void {
         if (in_array(Enums\Feature::Province, $features, true)) {
             $table->foreignId(self::getForeignKeyId(Feature::Province))
                 ->nullable()
