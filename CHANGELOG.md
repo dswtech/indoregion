@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## add ability to change per page - 2022-11-21
+
+**Full Changelog**: https://github.com/dicibi/indoregion/compare/v2.0.0...v2.0.1
+
 ## Refactoring   - 2022-10-25
 
 - change table and column naming
