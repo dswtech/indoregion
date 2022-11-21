@@ -11,7 +11,7 @@ use Illuminate\Contracts\Pagination\CursorPaginator;
 
 class IndoRegionResolver implements IndoRegionResolverContract
 {
-    public function getProvinces(?string $searchQuery = null): CursorPaginator
+    public function getProvinces(?string $searchQuery = null, ?int $perPage = null): CursorPaginator
     {
         $query = Province::query();
 
@@ -20,10 +20,10 @@ class IndoRegionResolver implements IndoRegionResolverContract
             static fn (Builder $query, string $input) => $query->where('name', 'like', "%$input%")
         );
 
-        return $query->cursorPaginate();
+        return $query->cursorPaginate($perPage);
     }
 
-    public function getRegencies(Province $province, ?string $searchQuery = null): CursorPaginator
+    public function getRegencies(Province $province, ?string $searchQuery = null, ?int $perPage = null): CursorPaginator
     {
         $query = $province->regencies();
 
@@ -32,10 +32,10 @@ class IndoRegionResolver implements IndoRegionResolverContract
             static fn (Builder $query, string $input) => $query->where('name', 'like', "%$input%")
         );
 
-        return $query->cursorPaginate();
+        return $query->cursorPaginate($perPage);
     }
 
-    public function getDistricts(Regency $regency, ?string $searchQuery = null): CursorPaginator
+    public function getDistricts(Regency $regency, ?string $searchQuery = null, ?int $perPage = null): CursorPaginator
     {
         $query = $regency->districts();
 
@@ -44,10 +44,10 @@ class IndoRegionResolver implements IndoRegionResolverContract
             static fn (Builder $query, string $input) => $query->where('name', 'like', "%$input%")
         );
 
-        return $query->cursorPaginate();
+        return $query->cursorPaginate($perPage);
     }
 
-    public function getVillages(District $district, ?string $searchQuery = null): CursorPaginator
+    public function getVillages(District $district, ?string $searchQuery = null, ?int $perPage = null): CursorPaginator
     {
         $query = $district->villages();
 
@@ -56,6 +56,6 @@ class IndoRegionResolver implements IndoRegionResolverContract
             static fn (Builder $query, string $input) => $query->where('name', 'like', "%$input%")
         );
 
-        return $query->cursorPaginate();
+        return $query->cursorPaginate($perPage);
     }
 }
