@@ -26,9 +26,7 @@ final class IndoRegion
     protected static string $foreignVillageId = 'idn_village_id';
 
     /**
-     * @param  \Illuminate\Database\Schema\Blueprint  $table
      * @param  array<\Dicibi\IndoRegion\Enums\Feature>  $features
-     * @return void
      */
     public static function tables(
         Blueprint $table,
