@@ -6,6 +6,7 @@ use Dicibi\IndoRegion\Contracts\IndoRegionResolver;
 use Dicibi\IndoRegion\Models\Province;
 use Dicibi\IndoRegion\Models\Regency;
 use Illuminate\Pagination\CursorPaginator;
+
 use function PHPUnit\Framework\assertCount;
 use function PHPUnit\Framework\assertInstanceOf;
 use function PHPUnit\Framework\assertNotEmpty;

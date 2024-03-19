@@ -17,10 +17,10 @@ use Illuminate\Database\Eloquent\Relations;
 /**
  * Province Model.
  *
- * @property  string $name
- * @property  \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\Regency> $regencies
- * @property  \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\District> $districts
- * @property  int $id
+ * @property string $name
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\Regency> $regencies
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\District> $districts
+ * @property int $id
  */
 class Province extends Model
 {
@@ -31,11 +31,19 @@ class Province extends Model
         return IndoRegion::getTable(Feature::Province);
     }
 
+    /**
+     * Get all the regencies for the Province
+     *
+     * @return Relations\HasMany<Regency>
+     */
     public function regencies(): Relations\HasMany
     {
         return $this->hasMany(config('indoregion.models.regency'), IndoRegion::getForeignKeyId(Feature::Province));
     }
 
+    /**
+     * @return Relations\HasManyThrough<District>
+     */
     public function districts(): Relations\HasManyThrough
     {
         return $this->hasManyThrough(

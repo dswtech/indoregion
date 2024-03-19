@@ -17,12 +17,12 @@ use Illuminate\Database\Eloquent\Relations;
 /**
  * Regency Model.
  *
- * @property  string $name
- * @property  \Dicibi\IndoRegion\Models\Province $province
- * @property  \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\District> $districts
- * @property  \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\District> $villages
- * @property  int|string $idn_province_id
- * @property  int $id
+ * @property string $name
+ * @property \Dicibi\IndoRegion\Models\Province $province
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\District> $districts
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\District> $villages
+ * @property int|string $idn_province_id
+ * @property int $id
  */
 class Regency extends Model
 {
@@ -42,16 +42,29 @@ class Regency extends Model
         return IndoRegion::getTable(Feature::Regency);
     }
 
+    /**
+     * Get the province that owns the regency.
+     *
+     * @return Relations\BelongsTo<Province, self>
+     */
     public function province(): Relations\BelongsTo
     {
         return $this->belongsTo(config('indoregion.models.province'), IndoRegion::getForeignKeyId(Feature::Province));
     }
 
+    /**
+     * Get all the districts for the Regency
+     *
+     * @return Relations\HasMany<District>
+     */
     public function districts(): Relations\HasMany
     {
         return $this->hasMany(config('indoregion.models.district'), IndoRegion::getForeignKeyId(Feature::Regency));
     }
 
+    /**
+     * @return Relations\HasManyThrough<Village>
+     */
     public function villages(): Relations\HasManyThrough
     {
         return $this->hasManyThrough(

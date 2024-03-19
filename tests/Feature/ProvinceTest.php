@@ -5,6 +5,7 @@ namespace Dicibi\IndoRegion\Tests\Feature;
 use Dicibi\IndoRegion\Contracts\IndoRegionResolver;
 use Dicibi\IndoRegion\Models\Province;
 use Illuminate\Pagination\CursorPaginator;
+
 use function PHPUnit\Framework\assertCount;
 use function PHPUnit\Framework\assertInstanceOf;
 use function PHPUnit\Framework\assertNotEmpty;

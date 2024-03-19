@@ -17,10 +17,10 @@ use Illuminate\Database\Eloquent\Relations;
 /**
  * Village Model.
  *
- * @property  string $name
- * @property  \Dicibi\IndoRegion\Models\District $district
- * @property  int|string $idn_district_id
- * @property  int $id
+ * @property string $name
+ * @property \Dicibi\IndoRegion\Models\District $district
+ * @property int|string $idn_district_id
+ * @property int $id
  */
 class Village extends Model
 {
@@ -40,6 +40,11 @@ class Village extends Model
         return IndoRegion::getTable(Feature::Village);
     }
 
+    /**
+     * Get the district that owns the village.
+     *
+     * @return Relations\BelongsTo<District, self>
+     */
     public function district(): Relations\BelongsTo
     {
         return $this->belongsTo(config('indoregion.models.district'), IndoRegion::getForeignKeyId(Feature::District));

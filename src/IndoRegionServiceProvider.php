@@ -19,9 +19,7 @@ class IndoRegionServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config' => $this->app->basePath('config'),
             ], 'indoregion-config');
-        }
 
-        if ($this->app->runningInConsole()) {
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         }
     }
