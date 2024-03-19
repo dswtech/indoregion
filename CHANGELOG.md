@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v2.2.0 - 2024-03-19
+
+### What's Changed
+
+* Laravel11 by @muhajirinlpu in https://github.com/dicibi/indoregion/pull/4
+
+**Full Changelog**: https://github.com/dicibi/indoregion/compare/v2.1.0...v2.2.0
+
 ## add ability to change per page - 2022-11-21
 
 **Full Changelog**: https://github.com/dicibi/indoregion/compare/v2.0.0...v2.0.1
