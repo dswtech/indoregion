@@ -57,7 +57,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Dicibi\\IndoRegion\\IndoRegionServiceProvider"
+                "Dswtech\\IndoRegion\\IndoRegionServiceProvider"
             ],
             "aliases": {}
         }

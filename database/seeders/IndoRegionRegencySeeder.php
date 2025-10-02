@@ -7,10 +7,10 @@
  *
  */
 
-namespace Dicibi\IndoRegion\Database\Seeders;
+namespace Dswtech\IndoRegion\Database\Seeders;
 
-use Dicibi\IndoRegion\Models\Regency;
-use Dicibi\IndoRegion\RawDataGetter;
+use Dswtech\IndoRegion\Models\Regency;
+use Dswtech\IndoRegion\RawDataGetter;
 use Illuminate\Database\Seeder;
 
 class IndoRegionRegencySeeder extends Seeder

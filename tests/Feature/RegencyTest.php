@@ -1,10 +1,10 @@
 <?php
 
-namespace Dicibi\IndoRegion\Tests\Feature;
+namespace Dswtech\IndoRegion\Tests\Feature;
 
-use Dicibi\IndoRegion\Contracts\IndoRegionResolver;
-use Dicibi\IndoRegion\Models\Province;
-use Dicibi\IndoRegion\Models\Regency;
+use Dswtech\IndoRegion\Contracts\IndoRegionResolver;
+use Dswtech\IndoRegion\Models\Province;
+use Dswtech\IndoRegion\Models\Regency;
 use Illuminate\Pagination\CursorPaginator;
 
 use function PHPUnit\Framework\assertCount;
@@ -26,7 +26,7 @@ it('can retrieve districts', function () {
 
     assertNotEmpty($regency);
 
-    /** @var \Dicibi\IndoRegion\Models\District $district */
+    /** @var \Dswtech\IndoRegion\Models\District $district */
     $district = $regency->districts()->first();
 
     assertSame((int) $district->idn_regency_id, $regency->id);
@@ -38,7 +38,7 @@ it('can retrieve villages', function () {
 
     assertNotEmpty($regency);
 
-    /** @var \Dicibi\IndoRegion\Models\Village $village */
+    /** @var \Dswtech\IndoRegion\Models\Village $village */
     $village = $regency->villages()->first();
 
     assertTrue($regency->districts()->where('id', $village->idn_district_id)->exists());

@@ -7,8 +7,8 @@
  *
  */
 
-use Dicibi\IndoRegion\Enums\Feature;
-use Dicibi\IndoRegion\IndoRegion;
+use Dswtech\IndoRegion\Enums\Feature;
+use Dswtech\IndoRegion\IndoRegion;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

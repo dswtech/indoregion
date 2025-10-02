@@ -1,8 +1,8 @@
 <?php
 
-namespace Dicibi\IndoRegion;
+namespace Dswtech\IndoRegion;
 
-use Dicibi\IndoRegion\Enums\Feature;
+use Dswtech\IndoRegion\Enums\Feature;
 use Illuminate\Database\Schema\Blueprint;
 
 final class IndoRegion
@@ -26,7 +26,7 @@ final class IndoRegion
     protected static string $foreignVillageId = 'idn_village_id';
 
     /**
-     * @param  array<\Dicibi\IndoRegion\Enums\Feature>  $features
+     * @param  array<\Dswtech\IndoRegion\Enums\Feature>  $features
      */
     public static function tables(
         Blueprint $table,

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dicibi\IndoRegion\Tests\App\Models;
+namespace Dswtech\IndoRegion\Tests\App\Models;
 
-use Dicibi\IndoRegion\Concerns\HasIndonesiaRegionData;
+use Dswtech\IndoRegion\Concerns\HasIndonesiaRegionData;
 use Illuminate\Database\Eloquent\Model;
 
 /**

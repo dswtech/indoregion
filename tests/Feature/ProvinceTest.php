@@ -1,9 +1,9 @@
 <?php
 
-namespace Dicibi\IndoRegion\Tests\Feature;
+namespace Dswtech\IndoRegion\Tests\Feature;
 
-use Dicibi\IndoRegion\Contracts\IndoRegionResolver;
-use Dicibi\IndoRegion\Models\Province;
+use Dswtech\IndoRegion\Contracts\IndoRegionResolver;
+use Dswtech\IndoRegion\Models\Province;
 use Illuminate\Pagination\CursorPaginator;
 
 use function PHPUnit\Framework\assertCount;
@@ -25,7 +25,7 @@ it('can retrieve regencies from province', function () {
 
     assertNotEmpty($province->regencies()->count());
 
-    /** @var \Dicibi\IndoRegion\Models\Regency $regency */
+    /** @var \Dswtech\IndoRegion\Models\Regency $regency */
     $regency = $province->regencies()->first();
 
     assertSame($province->id, (int) $regency->idn_province_id);
@@ -37,7 +37,7 @@ it('can retrieve district from province', function () {
 
     assertNotEmpty($province->districts()->count());
 
-    /** @var \Dicibi\IndoRegion\Models\District $district */
+    /** @var \Dswtech\IndoRegion\Models\District $district */
     $district = $province->districts()->first();
 
     assertTrue($province->regencies()->where('id', $district->idn_regency_id)->exists());

@@ -1,10 +1,10 @@
 <?php
 
-namespace Dicibi\IndoRegion\Tests\Feature;
+namespace Dswtech\IndoRegion\Tests\Feature;
 
-use Dicibi\IndoRegion\Contracts\IndoRegionResolver;
-use Dicibi\IndoRegion\Models\District;
-use Dicibi\IndoRegion\Models\Regency;
+use Dswtech\IndoRegion\Contracts\IndoRegionResolver;
+use Dswtech\IndoRegion\Models\District;
+use Dswtech\IndoRegion\Models\Regency;
 use Illuminate\Pagination\CursorPaginator;
 
 use function PHPUnit\Framework\assertCount;
@@ -30,7 +30,7 @@ it('can retrieve villages with same value with regency', function () {
     /** @var District $district */
     $district = District::query()->whereHas('villages')->first();
 
-    /** @var \Dicibi\IndoRegion\Models\Village $village */
+    /** @var \Dswtech\IndoRegion\Models\Village $village */
     $village = $district->villages()->first();
 
     assertTrue($district->regency->villages()->where($village->getTable().'.id', $village->id)->exists());
@@ -38,7 +38,7 @@ it('can retrieve villages with same value with regency', function () {
 
 it('can retrieve district from actions', function () {
     // surabaya
-    /** @var \Dicibi\IndoRegion\Models\Regency $regency */
+    /** @var \Dswtech\IndoRegion\Models\Regency $regency */
     $regency = Regency::query()->find(3578);
 
     /** @var IndoRegionResolver $action */

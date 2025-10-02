@@ -7,10 +7,10 @@
  *
  */
 
-namespace Dicibi\IndoRegion\Database\Seeders;
+namespace Dswtech\IndoRegion\Database\Seeders;
 
-use Dicibi\IndoRegion\Models\District;
-use Dicibi\IndoRegion\RawDataGetter;
+use Dswtech\IndoRegion\Models\District;
+use Dswtech\IndoRegion\RawDataGetter;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Collection;
 

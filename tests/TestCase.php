@@ -1,9 +1,9 @@
 <?php
 
-namespace Dicibi\IndoRegion\Tests;
+namespace Dswtech\IndoRegion\Tests;
 
-use Dicibi\IndoRegion\Database\Seeders\IndoRegionSeeder;
-use Dicibi\IndoRegion\IndoRegionServiceProvider;
+use Dswtech\IndoRegion\Database\Seeders\IndoRegionSeeder;
+use Dswtech\IndoRegion\IndoRegionServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Orchestra\Testbench\Attributes\WithConfig;
 use Orchestra\Testbench\TestCase as TestbenchTestCase;

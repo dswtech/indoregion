@@ -9,7 +9,7 @@
  *
  */
 
-namespace Dicibi\IndoRegion;
+namespace Dswtech\IndoRegion;
 
 use Iterator;
 use League\Csv\Exception;

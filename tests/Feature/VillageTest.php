@@ -1,10 +1,10 @@
 <?php
 
-namespace Dicibi\IndoRegion\Tests\Feature;
+namespace Dswtech\IndoRegion\Tests\Feature;
 
-use Dicibi\IndoRegion\Contracts\IndoRegionResolver;
-use Dicibi\IndoRegion\Models\District;
-use Dicibi\IndoRegion\Models\Village;
+use Dswtech\IndoRegion\Contracts\IndoRegionResolver;
+use Dswtech\IndoRegion\Models\District;
+use Dswtech\IndoRegion\Models\Village;
 use Illuminate\Pagination\CursorPaginator;
 
 use function PHPUnit\Framework\assertCount;
@@ -20,7 +20,7 @@ it('can retrieve villages', function () {
 
 it('can retrieve village from actions', function () {
     // rungkut
-    /** @var \Dicibi\IndoRegion\Models\District $district */
+    /** @var \Dswtech\IndoRegion\Models\District $district */
     $district = District::query()->find(357803);
 
     /** @var IndoRegionResolver $action */

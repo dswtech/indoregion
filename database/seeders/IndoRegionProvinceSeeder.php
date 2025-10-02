@@ -7,10 +7,10 @@
  *
  */
 
-namespace Dicibi\IndoRegion\Database\Seeders;
+namespace Dswtech\IndoRegion\Database\Seeders;
 
-use Dicibi\IndoRegion\Models\Province;
-use Dicibi\IndoRegion\RawDataGetter;
+use Dswtech\IndoRegion\Models\Province;
+use Dswtech\IndoRegion\RawDataGetter;
 use Illuminate\Database\Seeder;
 
 class IndoRegionProvinceSeeder extends Seeder

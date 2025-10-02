@@ -1,11 +1,11 @@
 <?php
 
-namespace Dicibi\IndoRegion\Contracts;
+namespace Dswtech\IndoRegion\Contracts;
 
-use Dicibi\IndoRegion\Models\District;
-use Dicibi\IndoRegion\Models\Province;
-use Dicibi\IndoRegion\Models\Regency;
-use Dicibi\IndoRegion\Models\Village;
+use Dswtech\IndoRegion\Models\District;
+use Dswtech\IndoRegion\Models\Province;
+use Dswtech\IndoRegion\Models\Regency;
+use Dswtech\IndoRegion\Models\Village;
 use Illuminate\Contracts\Pagination\CursorPaginator;
 
 interface IndoRegionResolver

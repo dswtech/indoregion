@@ -1,8 +1,8 @@
 <?php
 
-namespace Dicibi\IndoRegion\Tests\Unit;
+namespace Dswtech\IndoRegion\Tests\Unit;
 
-use Dicibi\IndoRegion\RawDataGetter as RawData;
+use Dswtech\IndoRegion\RawDataGetter as RawData;
 use PHPUnit\Framework\TestCase;
 
 /**
