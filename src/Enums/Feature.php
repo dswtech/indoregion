@@ -1,6 +1,6 @@
 <?php
 
-namespace Dicibi\IndoRegion\Enums;
+namespace Dswtech\IndoRegion\Enums;
 
 enum Feature
 {

@@ -1,17 +1,17 @@
 <?php
 
-use Dicibi\IndoRegion\Models\Province;
-use Dicibi\IndoRegion\Tests\App\Models\DummyModel;
+use Dswtech\IndoRegion\Models\Province;
+use Dswtech\IndoRegion\Tests\App\Models\DummyModel;
 
 it('can save dummy with all data', function () {
     // get region data
-    /** @var \Dicibi\IndoRegion\Models\Province $province */
+    /** @var \Dswtech\IndoRegion\Models\Province $province */
     $province = Province::query()->first();
-    /** @var \Dicibi\IndoRegion\Models\Regency $regency */
+    /** @var \Dswtech\IndoRegion\Models\Regency $regency */
     $regency = $province->regencies()->first();
-    /** @var \Dicibi\IndoRegion\Models\District $district */
+    /** @var \Dswtech\IndoRegion\Models\District $district */
     $district = $regency->districts()->first();
-    /** @var \Dicibi\IndoRegion\Models\Village $village */
+    /** @var \Dswtech\IndoRegion\Models\Village $village */
     $village = $district->villages()->first();
 
     $dummy = new DummyModel();

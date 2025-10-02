@@ -1,5 +1,5 @@
 <?php
 
-namespace Dicibi\IndoRegion\Tests;
+namespace Dswtech\IndoRegion\Tests;
 
 uses(TestCase::class)->in(__DIR__.'/Feature');

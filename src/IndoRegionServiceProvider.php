@@ -7,7 +7,7 @@
  *
  */
 
-namespace Dicibi\IndoRegion;
+namespace Dswtech\IndoRegion;
 
 use Illuminate\Support\ServiceProvider;
 

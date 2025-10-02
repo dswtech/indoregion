@@ -7,10 +7,10 @@
  *
  */
 
-namespace Dicibi\IndoRegion\Models;
+namespace Dswtech\IndoRegion\Models;
 
-use Dicibi\IndoRegion\Enums\Feature;
-use Dicibi\IndoRegion\IndoRegion;
+use Dswtech\IndoRegion\Enums\Feature;
+use Dswtech\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
 
@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Relations;
  * Village Model.
  *
  * @property string $name
- * @property \Dicibi\IndoRegion\Models\District $district
+ * @property \Dswtech\IndoRegion\Models\District $district
  * @property int|string $idn_district_id
  * @property int $id
  */

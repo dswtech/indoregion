@@ -7,10 +7,10 @@
  *
  */
 
-namespace Dicibi\IndoRegion\Models;
+namespace Dswtech\IndoRegion\Models;
 
-use Dicibi\IndoRegion\Enums\Feature;
-use Dicibi\IndoRegion\IndoRegion;
+use Dswtech\IndoRegion\Enums\Feature;
+use Dswtech\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
 
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Relations;
  * @property int $id
  * @property string $name
  * @property Regency $regency
- * @property \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\Village> $villages
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Dswtech\IndoRegion\Models\Village> $villages
  * @property int|string $idn_regency_id
  */
 class District extends Model

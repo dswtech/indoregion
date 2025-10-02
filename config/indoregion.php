@@ -6,10 +6,10 @@ return [
      * The model class name for Indonesia region
      */
     'models' => [
-        'province' => \Dicibi\IndoRegion\Models\Province::class,
-        'regency' => \Dicibi\IndoRegion\Models\Regency::class,
-        'district' => \Dicibi\IndoRegion\Models\District::class,
-        'village' => \Dicibi\IndoRegion\Models\Village::class,
+        'province' => \Dswtech\IndoRegion\Models\Province::class,
+        'regency' => \Dswtech\IndoRegion\Models\Regency::class,
+        'district' => \Dswtech\IndoRegion\Models\District::class,
+        'village' => \Dswtech\IndoRegion\Models\Village::class,
     ],
 
 ];

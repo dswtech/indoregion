@@ -7,10 +7,10 @@
  *
  */
 
-namespace Dicibi\IndoRegion\Models;
+namespace Dswtech\IndoRegion\Models;
 
-use Dicibi\IndoRegion\Enums\Feature;
-use Dicibi\IndoRegion\IndoRegion;
+use Dswtech\IndoRegion\Enums\Feature;
+use Dswtech\IndoRegion\IndoRegion;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations;
 
@@ -18,8 +18,8 @@ use Illuminate\Database\Eloquent\Relations;
  * Province Model.
  *
  * @property string $name
- * @property \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\Regency> $regencies
- * @property \Illuminate\Database\Eloquent\Collection<int, \Dicibi\IndoRegion\Models\District> $districts
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Dswtech\IndoRegion\Models\Regency> $regencies
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Dswtech\IndoRegion\Models\District> $districts
  * @property int $id
  */
 class Province extends Model

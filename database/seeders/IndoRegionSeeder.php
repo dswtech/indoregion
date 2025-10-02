@@ -7,7 +7,7 @@
  *
  */
 
-namespace Dicibi\IndoRegion\Database\Seeders;
+namespace Dswtech\IndoRegion\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
